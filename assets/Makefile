@@ -22,11 +22,12 @@ $(ASSETSTUDIO_DIR): $(ASSETSTUDIO_ZIP)
 
 .PHONY: unpack
 unpack: $(UNZIP_DIR)
-
 $(UNZIP_DIR): $(ASSETS_APK)
 	mkdir -p $(UNZIP_DIR)
-	unzip -o $(ASSETS_APK) -d $(UNZIP_DIR)
+	unzip -o $(ASSETS_APK) "assets/bin/Data/[0-9]*" -d $(UNZIP_DIR)/0-9
+	unzip -o $(ASSETS_APK) "assets/bin/Data/[a-z]*" -d $(UNZIP_DIR)/a-z
 
 .PHONY: assetstudio
 assetstudio: $(ASSETSTUDIO_DIR) $(UNZIP_DIR)
-	./$(ASSETSTUDIO_DIR)/AssetStudioModCLI $(UNZIP_DIR)/assets/bin/Data/ -t tex2d -o $(EXPORT_DIR)
+	./$(ASSETSTUDIO_DIR)/AssetStudioModCLI $(UNZIP_DIR)/0-9 -t tex2d -o $(EXPORT_DIR)
+	./$(ASSETSTUDIO_DIR)/AssetStudioModCLI $(UNZIP_DIR)/a-z -t tex2d -o $(EXPORT_DIR)
