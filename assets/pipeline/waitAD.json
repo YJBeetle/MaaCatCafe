@@ -5,7 +5,8 @@
         "next": [
             "ADType1Skip",
             "ADTypePlayClose",
-            "ADType2Skip",
+            "ADType2Close",
+            "ADType3Close",
         ]
     },
     "ADType1Skip": {
@@ -39,10 +40,21 @@
             "IdleTask",
         ],
     },
-    "ADType2Skip": {
+    "ADType2Close": {
         "recognition": "TemplateMatch",
-        "template": "ADType2Skip.png",
+        "template": "ADType2Close.png",
         "roi": [642,46,76,70],
+        "threshold": 0.5,
+        "green_mask": true,
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "ADType3Close": {
+        "recognition": "TemplateMatch",
+        "template": "ADType3Close.png",
+        "roi": [15,58,70,74],
         "threshold": 0.5,
         "green_mask": true,
         "action": "Click",
