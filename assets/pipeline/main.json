@@ -29,6 +29,26 @@
         "roi": [260,1056,189,128],
         "action": "Click",
         "next": [
+            "GoldBox1GetHasAD",
+        ],
+    },
+    "GoldBox1GetNoAD": {
+        "recognition": "TemplateMatch",
+        "template": "CenterGetNoAD.png",
+        "green_mask": true,
+        "roi": [376,700,148,120],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "GoldBox1GetHasAD": {
+        "recognition": "TemplateMatch",
+        "template": "CenterGetHasAD.png",
+        "green_mask": true,
+        "roi": [201,700,177,120],
+        "action": "Click",
+        "next": [
             "IdleTask",
         ],
     },
