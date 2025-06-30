@@ -15,17 +15,6 @@
 
 MaaController* create_adb_controller();
 MaaController* create_win32_controller();
-MaaBool my_reco(
-    MaaContext* context,
-    MaaTaskId task_id,
-    const char* node_name,
-    const char* custom_recognition_name,
-    const char* custom_recognition_param,
-    const MaaImageBuffer* image,
-    const MaaRect* roi,
-    void* trans_arg,
-    /* out */ MaaRect* out_box,
-    /* out */ MaaStringBuffer* out_detail);
 
 int main([[maybe_unused]] int argc, char** argv)
 {
@@ -59,8 +48,6 @@ int main([[maybe_unused]] int argc, char** argv)
         destroy();
         return -1;
     }
-
-    MaaResourceRegisterCustomRecognition(resource_handle, "MyReco", my_reco, nullptr);
 
     auto task_id = MaaTaskerPostTask(tasker_handle, "MyTask", "{}");
     MaaTaskerWait(tasker_handle, task_id);
@@ -143,57 +130,4 @@ MaaController* create_win32_controller()
 
     destroy();
     return controller_handle;
-}
-
-// @ MaaCustomRecognitionCallback
-MaaBool my_reco(
-    MaaContext* context,
-    MaaTaskId task_id,
-    const char* node_name,
-    const char* custom_recognition_name,
-    const char* custom_recognition_param,
-    const MaaImageBuffer* image,
-    const MaaRect* roi,
-    void* trans_arg,
-    /* out */ MaaRect* out_box,
-    /* out */ MaaStringBuffer* out_detail)
-{
-    /* Get image */
-
-    // Approach 1
-    uint8_t* png_data = MaaImageBufferGetEncoded(image);
-    size_t png_size = MaaImageBufferGetEncodedSize(image);
-    // cv::Mat im = cv::imdecode({ png_data, png_size }, cv::IMREAD_COLOR);
-
-    // Approach 2
-    // This approach is more efficient, but may be difficult for some languages.
-    // I recommend you to use approach 2 if you can.
-    void* raw_data = MaaImageBufferGetRawData(image);
-    int32_t width = MaaImageBufferWidth(image);
-    int32_t height = MaaImageBufferHeight(image);
-    int32_t type = MaaImageBufferType(image);
-    // cv::Mat im(height, width, type, raw_data);
-
-    // And do your computer vision...
-    // Or you MaaContext API to run some recognition
-    MaaRecoId reco_id = MaaContextRunRecognition(context, "MySecondReco", "{}", image);
-    auto tasker_handle = MaaContextGetTasker(context);
-    // MaaTaskerGetRecognitionDetail(tasker_handle, reco_id, /* ... */);
-
-    /* Output recognition result */
-
-    // Step 1: output box
-    std::array<int, 4> my_box { 0 }; // your result
-    MaaRectSet(out_box, my_box[0], my_box[1], my_box[2], my_box[3]);
-
-    // Step 2: output anything you want
-    MaaStringBufferSet(
-        out_detail,
-        "Balabala, this string will be used by MaaCustomActionCallback and "
-        "MaaQueryRecognitionDetail. "
-        "And for compatibility, I recommend you use json.");
-
-    // Finally, if this task is hit and you want to execute the action and next of this task,
-    // don't forget to return true!
-    return true;
 }
