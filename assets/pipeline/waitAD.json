@@ -1,0 +1,27 @@
+{
+    "WaitADTask": {
+        "next": [
+            "ADType1Skip",
+        ]
+    },
+    "ADType1Skip": {
+        "recognition": "TemplateMatch",
+        "template": "ADType1Skip.png",
+        "roi": [580,60,120,120],
+        "green_mask": true,
+        "action": "Click",
+        "next": [
+            "ADType1Close",
+        ],
+    },
+    "ADType1Close": {
+        "recognition": "TemplateMatch",
+        "template": "ADType1Close.png",
+        "roi": [570,60,140,140],
+        "green_mask": true,
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+}

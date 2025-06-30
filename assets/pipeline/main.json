@@ -12,11 +12,6 @@
             "LevelUp",
         ]
     },
-    "WaitADTask": {
-        "next": [
-            "IdleTask",
-        ]
-    },
     "BackUpGold": {
         "recognition": "TemplateMatch",
         "template": "BackUpGold.png",
