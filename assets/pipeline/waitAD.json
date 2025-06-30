@@ -1,13 +1,14 @@
 {
     "WaitADTask": {
+        "rate_limit": 5000,
+        "timeout": 60000,
         "next": [
             "ADType1Skip",
             "ADTypePlayClose",
+            "ADType2Skip",
         ]
     },
     "ADType1Skip": {
-        "rate_limit": 5000,
-        "timeout": 60000,
         "recognition": "TemplateMatch",
         "template": "ADType1Skip.png",
         "roi": [580,60,120,120],
@@ -30,11 +31,20 @@
         ],
     },
     "ADTypePlayClose": {
-        "rate_limit": 5000,
-        "timeout": 60000,
         "recognition": "TemplateMatch",
         "template": "ADTypePlayClose.png",
         "roi": [609,59,80,80],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "ADType2Skip": {
+        "recognition": "TemplateMatch",
+        "template": "ADType2Skip.png",
+        "roi": [642,46,76,70],
+        "threshold": 0.5,
+        "green_mask": true,
         "action": "Click",
         "next": [
             "IdleTask",
