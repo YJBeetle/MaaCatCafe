@@ -1,0 +1,19 @@
+{
+    "MainTask": {
+        "next": [
+            "LevelUp"
+        ]
+    },
+    "LevelUp": {
+        "recognition": "TemplateMatch",
+        "template": "LevelUp.png",
+        "green_mask": true,
+        "roi": [64,1034,56,56],
+        "action": "LongPress",
+        "target_offset": [-26,26,0,0],
+        "duration": 10000,
+        "next": [
+            "LevelUp"
+        ],
+    }
+}

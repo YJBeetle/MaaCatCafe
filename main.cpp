@@ -26,7 +26,7 @@ int main([[maybe_unused]] int argc, char** argv)
     auto ctrl_id = MaaControllerPostConnection(controller_handle);
 
     auto resource_handle = MaaResourceCreate(nullptr, nullptr);
-    std::string resource_dir = R"(/Volumes/Data/Workspace/MaaFramework/sample/resource)";
+    std::string resource_dir = R"(../assets)";
     auto res_id = MaaResourcePostBundle(resource_handle, resource_dir.c_str());
 
     MaaControllerWait(controller_handle, ctrl_id);
@@ -49,7 +49,7 @@ int main([[maybe_unused]] int argc, char** argv)
         return -1;
     }
 
-    auto task_id = MaaTaskerPostTask(tasker_handle, "MyTask", "{}");
+    auto task_id = MaaTaskerPostTask(tasker_handle, "MainTask", "{}");
     MaaTaskerWait(tasker_handle, task_id);
 
     destroy();

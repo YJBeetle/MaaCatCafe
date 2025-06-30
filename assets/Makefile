@@ -39,4 +39,4 @@ $(EXPORT_DIR): $(ASSETSTUDIO_DIR) $(UNZIP_DIR)
 
 $(EXPORT_DIR)/atlas_ui1.png: $(EXPORT_DIR)
 $(IMAGE_DIR)/LevelUp.png: $(EXPORT_DIR)/atlas_ui1.png
-	magick $< -crop 51x51+386+832 -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
+	magick $< -crop 51x51+386+832 -resize 55% -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
