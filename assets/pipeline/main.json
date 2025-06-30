@@ -7,8 +7,8 @@
     },
     "IdleTask": {
         "next": [
-            "GoldBox1",
-            "GoldBox2",
+            "GoldBox",
+            "FuCan",
             "LevelUp",
         ]
     },
@@ -39,9 +39,9 @@
             "IdleTask",
         ],
     },
-    "GoldBox1": {
+    "GoldBox": {
         "recognition": "TemplateMatch",
-        "template": "GoldBox1.png",
+        "template": "GoldBox.png",
         "green_mask": true,
         "roi": [260,1056,189,128],
         "action": "Click",
@@ -49,19 +49,19 @@
             "DialogGetHasAD",
         ],
     },
-    "GoldBox2": {
+    "FuCan": {
         "recognition": "TemplateMatch",
-        "template": "GoldBox2.png",
+        "template": "FuCan.png",
         "green_mask": true,
         "roi": [327,1064,138,119],
         "action": "Click",
         "next": [
-            "GoldBox2GetHasAD",
+            "FuCanGetHasAD",
         ],
     },
-    "GoldBox2GetNoAD": {
+    "FuCanGetNoAD": {
         "recognition": "TemplateMatch",
-        "template": "GoldBoxGetNoAD.png",
+        "template": "FuCanGetNoAD.png",
         "green_mask": true,
         "roi": [417,825,175,69],
         "action": "Click",
@@ -69,14 +69,14 @@
             "IdleTask",
         ],
     },
-    "GoldBox2GetHasAD": {
+    "FuCanGetHasAD": {
         "recognition": "TemplateMatch",
-        "template": "GoldBoxGetHasAD.png",
+        "template": "FuCanGetHasAD.png",
         "green_mask": true,
         "roi": [213,826,173,67],
         "action": "Click",
         "next": [
-            "WaitADTask",
+            "DialogYes",
         ],
     },
 }

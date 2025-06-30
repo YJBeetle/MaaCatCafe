@@ -14,7 +14,7 @@ endif
 IMAGE_DIR := image
 
 .PHONY: all
-all: $(IMAGE_DIR)/BackUpGold.png $(IMAGE_DIR)/LevelUp.png $(IMAGE_DIR)/GoldBox1.png $(IMAGE_DIR)/GoldBox2.png
+all: $(IMAGE_DIR)/BackUpGold.png $(IMAGE_DIR)/LevelUp.png $(IMAGE_DIR)/GoldBox.png $(IMAGE_DIR)/FuCan.png
 
 $(ASSETSTUDIO_ZIP):
 	curl -L $(ASSETSTUDIO_URL) -o $(ASSETSTUDIO_ZIP)
@@ -44,7 +44,7 @@ $(IMAGE_DIR)/BackUpGold.png: $(EXPORT_DIR)/atlas_img.png
 	magick $< -crop 243x28+468+641 -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
 $(IMAGE_DIR)/LevelUp.png: $(EXPORT_DIR)/atlas_ui1.png
 	magick $< -crop 51x51+386+832 -resize 55% -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
-$(IMAGE_DIR)/GoldBox1.png: $(EXPORT_DIR)/atlas_img.png
+$(IMAGE_DIR)/GoldBox.png: $(EXPORT_DIR)/atlas_img.png
 	magick $< -crop 247x160+1416+1088 -resize 64% -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
-$(IMAGE_DIR)/GoldBox2.png: $(EXPORT_DIR)/atlas_img.png
+$(IMAGE_DIR)/FuCan.png: $(EXPORT_DIR)/atlas_img.png
 	magick $< -crop 231x216+1659+1499 -resize 45.5% -channel RGBA -fx "a < 1 ? #00FF00 : u" +repage -strip -alpha off $@
