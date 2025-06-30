@@ -10,7 +10,18 @@
             "GoldBox",
             "FuCan",
             "LevelUp",
-        ]
+        ],
+        "interrupt": [
+            "BackToMain",
+        ],
+    },
+    "BackToMain": {
+        "recognition": "TemplateMatch",
+        "template": "BackChect.png",
+        "roi": [0,1170,40,110],
+        "inverse": true,
+        "action": "Click",
+        "target": [10,1170,30,100],
     },
     "BackUpGold": {
         "recognition": "TemplateMatch",
