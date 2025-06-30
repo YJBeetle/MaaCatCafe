@@ -1,8 +1,8 @@
-ASSETS_APK := tmp/split_base_assets.apk
-UNZIP_DIR := tmp/split_base_assets
-EXPORT_DIR := tmp/split_base_assets_export
-ASSETSTUDIO_ZIP := tmp/AssetStudioModCLI.zip
-ASSETSTUDIO_DIR := tmp/AssetStudioModCLI
+ASSETS_APK := ../tmp/split_base_assets.apk
+UNZIP_DIR := ../tmp/split_base_assets
+EXPORT_DIR := ../tmp/split_base_assets_export
+ASSETSTUDIO_ZIP := ../tmp/AssetStudioModCLI.zip
+ASSETSTUDIO_DIR := ../tmp/AssetStudioModCLI
 ASSETSTUDIO_VERSION := v0.18.0
 ifeq ($(shell uname), Darwin)
 	ASSETSTUDIO_URL := https://github.com/aelurum/AssetStudio/releases/download/$(ASSETSTUDIO_VERSION)/AssetStudioModCLI_net6_mac64.zip
