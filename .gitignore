@@ -1,2 +1,6 @@
 /build/
 .DS_Store
+/assets/AssetStudioModCLI.zip
+/assets/AssetStudioModCLI/
+/assets/split_base_assets.apk
+/assets/split_base_assets/
