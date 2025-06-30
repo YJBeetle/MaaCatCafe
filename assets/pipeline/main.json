@@ -7,6 +7,7 @@
     "IdleTask": {
         "next": [
             "GoldBox1",
+            "GoldBox2",
             "LevelUp",
         ]
     },
@@ -52,6 +53,36 @@
         "template": "CenterGetHasAD.png",
         "green_mask": true,
         "roi": [201,700,177,120],
+        "action": "Click",
+        "next": [
+            "WaitADTask",
+        ],
+    },
+    "GoldBox2": {
+        "recognition": "TemplateMatch",
+        "template": "GoldBox2.png",
+        "green_mask": true,
+        "roi": [327,1064,138,119],
+        "action": "Click",
+        "next": [
+            "GoldBox2GetHasAD",
+        ],
+    },
+    "GoldBox2GetNoAD": {
+        "recognition": "TemplateMatch",
+        "template": "GoldBoxGetNoAD.png",
+        "green_mask": true,
+        "roi": [417,825,175,69],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "GoldBox2GetHasAD": {
+        "recognition": "TemplateMatch",
+        "template": "GoldBoxGetHasAD.png",
+        "green_mask": true,
+        "roi": [213,826,173,67],
         "action": "Click",
         "next": [
             "WaitADTask",
