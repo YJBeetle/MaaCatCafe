@@ -1,7 +1,13 @@
 {
     "MainTask": {
         "next": [
-            "LevelUp"
+            "IdleTask",
+        ]
+    },
+    "IdleTask": {
+        "next": [
+            "GoldBox1",
+            "LevelUp",
         ]
     },
     "LevelUp": {
@@ -13,7 +19,17 @@
         "target_offset": [-26,26,0,0],
         "duration": 10000,
         "next": [
-            "LevelUp"
+            "IdleTask",
         ],
-    }
+    },
+    "GoldBox1": {
+        "recognition": "TemplateMatch",
+        "template": "GoldBox1.png",
+        "green_mask": true,
+        "roi": [260,1056,189,128],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
 }
