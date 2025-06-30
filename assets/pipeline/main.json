@@ -9,6 +9,7 @@
         "next": [
             "GoldBox",
             "FuCan",
+            "Camera",
             "LevelUp",
         ],
         "interrupt": [
@@ -39,7 +40,7 @@
         "green_mask": true,
         "roi": [64,1034,56,56],
         "action": "LongPress",
-        "target_offset": [-26,26,0,0],
+        "target_offset": [-26,0,26,26],
         "duration": 10000,
         "next": [
             "IdleTask",
@@ -87,10 +88,11 @@
     },
     "Camera": {
         "recognition": "TemplateMatch",
-        "template": "Camera.png",
+        "template": "CameraDot.png",
         "green_mask": true,
-        "roi": [637,801,65,63],
+        "roi": [669,801,32,32],
         "action": "Click",
+        "target_offset": [-32,0,32,32],
         "next": [
             "CameraTake",
         ],
