@@ -1,6 +1,7 @@
 {
     "MainTask": {
         "next": [
+            "BackUpGold",
             "IdleTask",
         ]
     },
@@ -15,6 +16,36 @@
         "next": [
             "IdleTask",
         ]
+    },
+    "BackUpGold": {
+        "recognition": "TemplateMatch",
+        "template": "BackUpGold.png",
+        "green_mask": true,
+        "roi": [248,1137,248,38],
+        "action": "Click",
+        "next": [
+            "BackUpGoldGetHasAD",
+        ],
+    },
+    "BackUpGoldGetNoAD": {
+        "recognition": "TemplateMatch",
+        "template": "CenterGetNoAD.png",
+        "green_mask": true,
+        "roi": [376,770,148,120],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "BackUpGoldGetHasAD": {
+        "recognition": "TemplateMatch",
+        "template": "CenterGetHasAD.png",
+        "green_mask": true,
+        "roi": [201,770,177,120],
+        "action": "Click",
+        "next": [
+            "WaitADTask",
+        ],
     },
     "LevelUp": {
         "recognition": "TemplateMatch",
