@@ -74,4 +74,22 @@
             "DialogYes",
         ],
     },
+    "Camera": {
+        "recognition": "TemplateMatch",
+        "template": "Camera.png",
+        "green_mask": true,
+        "roi": [637,801,65,63],
+        "action": "Click",
+        "next": [
+            "CameraTake",
+        ],
+    },
+    "CameraTake": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [308,984,107,105],
+        "next": [
+            "IdleTask",
+        ],
+    },
 }
