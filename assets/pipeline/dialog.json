@@ -1,0 +1,22 @@
+{
+    "DialogGetNoAD": {
+        "recognition": "TemplateMatch",
+        "template": "DialogGetNoAD.png",
+        "green_mask": true,
+        "roi": [376,700,148,200],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "DialogGetHasAD": {
+        "recognition": "TemplateMatch",
+        "template": "DialogGetHasAD.png",
+        "green_mask": true,
+        "roi": [201,700,177,200],
+        "action": "Click",
+        "next": [
+            "WaitADTask",
+        ],
+    },
+}
