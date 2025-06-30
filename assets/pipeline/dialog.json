@@ -16,6 +16,26 @@
         "roi": [201,700,177,200],
         "action": "Click",
         "next": [
+            "DialogYes",
+        ],
+    },
+    "DialogNo": {
+        "recognition": "TemplateMatch",
+        "template": "DialogNo.png",
+        "green_mask": true,
+        "roi": [191,690,159,90],
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "DialogYes": {
+        "recognition": "TemplateMatch",
+        "template": "DialogYes.png",
+        "green_mask": true,
+        "roi": [370,690,159,90],
+        "action": "Click",
+        "next": [
             "WaitADTask",
         ],
     },
