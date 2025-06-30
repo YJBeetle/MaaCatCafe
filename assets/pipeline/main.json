@@ -10,6 +10,7 @@
             "GoldBox",
             "FuCan",
             "Camera",
+            "CatSay",
             "LevelUp",
         ],
         "interrupt": [
@@ -101,6 +102,25 @@
         "recognition": "DirectHit",
         "action": "Click",
         "target": [308,984,107,105],
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "CatSay": {
+        "recognition": "TemplateMatch",
+        "template": "CatSay.png",
+        "green_mask": true,
+        "roi": [656,721,50,47],
+        "action": "Click",
+        "target_offset": [-32,0,32,32],
+        "next": [
+            "CatSayOk",
+        ],
+    },
+    "CatSayOk": {
+        "recognition": "DirectHit",
+        "action": "Click",
+        "target": [333,744,58,57],
         "next": [
             "IdleTask",
         ],
