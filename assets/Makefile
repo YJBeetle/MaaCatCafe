@@ -11,6 +11,10 @@ else ifeq ($(shell uname), Linux)
 else
 	ASSETSTUDIO_URL := https://github.com/aelurum/AssetStudio/releases/download/$(ASSETSTUDIO_VERSION)/AssetStudioModCLI_net6_win64.zip
 endif
+IMAGE_DIR := image
+
+.PHONY: all
+all: $(IMAGE_DIR)/LevelUp.png
 
 $(ASSETSTUDIO_ZIP):
 	curl -L $(ASSETSTUDIO_URL) -o $(ASSETSTUDIO_ZIP)
@@ -27,7 +31,11 @@ $(UNZIP_DIR): $(ASSETS_APK)
 	unzip -o $(ASSETS_APK) "assets/bin/Data/[0-9]*" -d $(UNZIP_DIR)/0-9
 	unzip -o $(ASSETS_APK) "assets/bin/Data/[a-z]*" -d $(UNZIP_DIR)/a-z
 
-.PHONY: assetstudio
-assetstudio: $(ASSETSTUDIO_DIR) $(UNZIP_DIR)
+.PHONY: asset
+asset: $(EXPORT_DIR)
+$(EXPORT_DIR): $(ASSETSTUDIO_DIR) $(UNZIP_DIR)
 	./$(ASSETSTUDIO_DIR)/AssetStudioModCLI $(UNZIP_DIR)/0-9 -t tex2d -o $(EXPORT_DIR)
 	./$(ASSETSTUDIO_DIR)/AssetStudioModCLI $(UNZIP_DIR)/a-z -t tex2d -o $(EXPORT_DIR)
+
+$(IMAGE_DIR)/LevelUp.png: $(EXPORT_DIR)/atlas_ui1.png
+	magick $< -crop 51x51+386+832 +repage -strip $@
