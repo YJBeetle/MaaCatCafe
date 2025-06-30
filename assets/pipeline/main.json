@@ -10,6 +10,11 @@
             "LevelUp",
         ]
     },
+    "WaitADTask": {
+        "next": [
+            "IdleTask",
+        ]
+    },
     "LevelUp": {
         "recognition": "TemplateMatch",
         "template": "LevelUp.png",
@@ -49,7 +54,7 @@
         "roi": [201,700,177,120],
         "action": "Click",
         "next": [
-            "IdleTask",
+            "WaitADTask",
         ],
     },
 }
