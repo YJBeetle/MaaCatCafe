@@ -2,6 +2,7 @@
     "WaitADTask": {
         "next": [
             "ADType1Skip",
+            "ADTypePlayClose",
         ]
     },
     "ADType1Skip": {
@@ -23,6 +24,17 @@
         "roi": [570,60,140,140],
         "threshold": 0.5,
         "green_mask": true,
+        "action": "Click",
+        "next": [
+            "IdleTask",
+        ],
+    },
+    "ADTypePlayClose": {
+        "rate_limit": 5000,
+        "timeout": 60000,
+        "recognition": "TemplateMatch",
+        "template": "ADTypePlayClose.png",
+        "roi": [609,59,80,80],
         "action": "Click",
         "next": [
             "IdleTask",
